@@ -1,0 +1,9 @@
+{
+    "include_dna": true,
+    "include_atac": true,
+    "shuffle_mode": "none",
+    "batch_size": 512,
+    "max_epochs": 200,
+    "lr": 1e-05,
+    "wd": 1e-04
+}
