@@ -19,7 +19,7 @@ This repository demonstrates the implementation of a chromatin accessibility-aug
 
 Each input example consists of 5 vectors of length 2000, representing the promoter of a gene in a specific cell type. A pooled ATAC-seq track accompanies the one-hot encoded DNA nucleotides of the promoter sequence. For each input example, the convolutional neural network (largely based on Xpresso by Agarwal et al., 2020) outputs a single value that represents the proportion of cells expressing the input gene.
 
-The provided Python programs can be used to reproduce the analyses in the manuscript titled *Refining sequence-to-expression modelling with chromatin accessibility* by Orsolya Lapohos, Gregory Fonseca, and Amin Emad. These analyses include the ablation and scrambling experiments, as well as model explanation.
+The provided Python programs can be used to reproduce the analyses in the manuscript titled *Refining sequence-to-expression modelling with chromatin accessibility* by Orsolya Lapohos, Gregory Fonseca, and Amin Emad (under review). These analyses include the ablation and scrambling experiments, as well as model explanation.
 
 ## Download
 
@@ -40,7 +40,12 @@ Then, to run the Python programs described below in this environment, use the fo
 ## Sample data and trained models
 
 Sample training and testing data, as well as trained DNA-only and DNA+ATAC models for CD4 T cells can be accessed via figshare:
-[LINK HERE]
+
+| Dataset | URL |
+| ------ | ----- |
+| Pre-processed CD4 T cell (sc) train and test sets (5-fold CV) | https://doi.org/10.6084/m9.figshare.26426404.v1 |
+| Trained CD4 T cell (sc) DNA-only models | https://doi.org/10.6084/m9.figshare.26434000.v1 |
+| Trained CD4 T cell (sc) DNA+ATAC models | https://doi.org/10.6084/m9.figshare.26436391.v1 |
 
 The data files are provided in NumPy archive format, each containing arrays named 'samples' (Ensembl gene IDs), 'promoter' (2kb sequence around the TSS), 'rna' (gene expression probabilities in cell type), and 'atac' (pooled ATAC-seq tracks aligned to sequences).
 
