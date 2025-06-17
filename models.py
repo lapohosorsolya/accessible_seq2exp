@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 from seq2exp_functions import calculate_pooling_output_length, calculate_conv_output_length
 

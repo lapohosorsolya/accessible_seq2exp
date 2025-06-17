@@ -2,16 +2,22 @@
 
 This repository demonstrates the implementation of a chromatin accessibility-augmented sequence-to-expression model using pooled RNA- and ATAC-seq data from human single cell multiome datasets.
 
-## Contents
+**Contents**
 
-+ [Overview](#overview)
-+ [Download](#download)
-+ [Dependencies](#dependencies)
-+ [Sample data and trained models](#sample-data-and-trained-models)
-+ [1. Model training](#1-model-training)
-+ [2. Model evaluation](#2-model-evaluation)
-+ [3. Model explanation](#3-model-explanation)
-+ [Notes](#notes)
+- [Overview](#overview)
+- [Download](#download)
+- [Dependencies](#dependencies)
+- [Sample data and trained models](#sample-data-and-trained-models)
+- [1. Model training](#1-model-training)
+  - [Input](#input)
+  - [Output](#output)
+- [2. Model evaluation](#2-model-evaluation)
+  - [Input](#input-1)
+  - [Output](#output-1)
+- [3. Model explanation](#3-model-explanation)
+  - [Input](#input-2)
+  - [Output](#output-2)
+- [Notes](#notes)
 
 ## Overview
 
@@ -157,4 +163,8 @@ The output of `3_explain_models.py` produces 2 directories (if both DNA+ATAC and
 
 ## Notes
 
-The `AugmentedSeq2Exp` model is adaptable such that it can be trained on datasets with input sequences of any length longer than 2000 bases.
+- The `AugmentedSeq2Exp` model is adaptable such that it can be trained on datasets with input sequences of any length longer than 2000 bases.
+
+- Preprocessing of the 10x Genomics datasets is described in the `preprocessing.md` file.
+
+- For any questions please contact orsolya.lapohos@mail.mcgill.ca

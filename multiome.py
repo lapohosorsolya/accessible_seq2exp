@@ -1,8 +1,6 @@
 import sys
 import torch
-import math
 import numpy as np
-import anndata
 from tqdm import tqdm
 import seq2exp_functions
 

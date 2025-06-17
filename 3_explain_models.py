@@ -1,8 +1,6 @@
-import os, sys, gc, getopt, inspect, json
+import os, sys, getopt, json
 import numpy as np
-import pandas as pd
 import torch
-import torch.nn as nn
 import shap
 from tqdm import tqdm
 from deeplift.dinuc_shuffle import dinuc_shuffle
@@ -50,7 +48,6 @@ if __name__ == "__main__":
     in_len = 2000
     batch_size = 512
     seeds = [7, 25, 39, 101, 144]
-    device = torch.device('cuda:6')
 
     # check if input files and directories exist
     check_path(trained_model_dir, dir = True)
