@@ -24,7 +24,13 @@ class MultiOmicDataset():
 
 
     def encode_promoter(self, promoter):
-        return torch.nn.functional.one_hot(torch.tensor(promoter, dtype = int), 4).T
+        encoding = np.zeros((4, promoter.shape[0]), dtype = int)
+        for i in range(promoter.shape[0]):
+            if promoter[i] != -1:
+                encoding[promoter[i]][i] = 1
+            else:
+                encoding[:,i] = 0.25
+        return torch.from_numpy(encoding)
     
 
     def fetch_torch_samples(self, return_samples = False, bases = 4):

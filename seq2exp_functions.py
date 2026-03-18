@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from tqdm import tqdm
 from scipy.stats import pearsonr, spearmanr
-from sklearn.model_selection import KFold
+from sklearn.model_selection import KFold, train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
 
@@ -116,6 +116,15 @@ def make_agct_numeric_vector(seq):
     return vec
 
 
+def ignorant_train_val_split(samples, val_prop = 0.25, seed = 0):
+    '''
+    Perform an ignorant split on cell and gene indices.
+    '''
+    rnd = np.random.RandomState(seed)
+    train_indices, val_indices = train_test_split(np.arange(samples.shape[0]), test_size = val_prop, shuffle = True, random_state = rnd)
+    return train_indices, val_indices
+
+
 def split_genes_kf(n_folds, genes):
     '''
     Split only genes k-fold.
@@ -132,8 +141,6 @@ def split_genes_kf(n_folds, genes):
 
 
 def calculate_regressor_metrics(y_hat, y):
-    print(min(y_hat), max(y_hat))
-    print(min(y), max(y))
     pearson_result = pearsonr(y, y_hat)
     spearman_result = spearmanr(y, y_hat)
     mse = mean_squared_error(y, y_hat)
@@ -151,10 +158,16 @@ def plot_loss(train_epochs, val_epochs, train_loss, val_loss, ax):
 
 
 def calculate_pooling_output_length(L_in, padding, kernel_size, stride):
-    L_out = (L_in + 2 * padding - kernel_size) /  stride + 1
-    return math.floor(L_out)
+    L_out = (L_in + 2 * padding - kernel_size) /  stride
+    # if math.floor(L_out) == L_out:
+    #     return int(L_out)
+    # else:
+    return math.floor(L_out) + 1
 
 
 def calculate_conv_output_length(L_in, padding, kernel_size, stride, dilation):
-    L_out = (L_in + 2 * padding - (dilation * kernel_size - 1)) /  stride + 1
-    return math.floor(L_out)
+    L_out = (L_in + 2 * padding - (dilation * kernel_size - 1)) /  stride
+    # if math.floor(L_out) == L_out:
+    #     return int(L_out)
+    # else:
+    return math.floor(L_out) + 1
