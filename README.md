@@ -25,7 +25,23 @@ This repository demonstrates the implementation of a chromatin accessibility-aug
 
 Each input example consists of 5 vectors of length 2000, representing the promoter of a gene in a specific cell type. A pooled ATAC-seq track accompanies the one-hot encoded DNA nucleotides of the promoter sequence. For each input example, the convolutional neural network (largely based on Xpresso by Agarwal et al., 2020) outputs a single value that represents the proportion of cells expressing the input gene.
 
-The provided Python programs can be used to reproduce the analyses in the manuscript titled *Refining sequence-to-expression modelling with chromatin accessibility* by Orsolya Lapohos, Gregory Fonseca, and Amin Emad (under review). These analyses include the ablation and scrambling experiments, as well as model explanation.
+The provided Python programs can be used to reproduce the analyses in the manuscript titled *Refining sequence-to-expression modelling with chromatin accessibility* by Orsolya Lapohos, Gregory Fonseca, and Amin Emad (*Bioinformatics*, 2026), available [here](https://academic.oup.com/bioinformatics/article/42/5/btag199/8662824?guestAccessKey=). These analyses include the ablation and scrambling experiments, as well as model explanation.
+
+BibTeX citation:
+
+    @article{Lapohos2026,
+        author = {Lapohos, Orsolya and Fonseca, Gregory J and Emad, Amin},
+        title = {Refining sequence-to-expression modelling with chromatin accessibility},
+        journal = {Bioinformatics},
+        volume = {42},
+        number = {5},
+        pages = {btag199},
+        year = {2026},
+        month = {05},
+        issn = {1367-4811},
+        doi = {10.1093/bioinformatics/btag199},
+        url = {https://doi.org/10.1093/bioinformatics/btag199}
+    }
 
 ## Download
 
